@@ -1,6 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
+
 const app = express();
+mongoose
+  .connect("mongodb://localhost/mevn-db")
+  .then((db) => {
+    console.log("DB connected!");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.set("port", process.env.PORT || 3000);
 
