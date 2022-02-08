@@ -8,4 +8,12 @@ router.get("/", async (req, res) => {
   res.json(tasks);
 });
 
+router.post("/", async (req, res) => {
+  const task = new Task(req.body);
+  await task.save();
+  res.json({
+    status: "Task Saved, Success!",
+  });
+});
+
 module.exports = router;
