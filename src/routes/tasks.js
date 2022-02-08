@@ -16,4 +16,11 @@ router.post("/", async (req, res) => {
   });
 });
 
+router.put("/:id", async (req, res) => {
+  await Task.findByIdAndUpdate(req.params.id, req.body);
+  res.json({
+    status: "Task updated, Success!",
+  });
+});
+
 module.exports = router;
